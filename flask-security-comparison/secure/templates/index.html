@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security Comparison Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <section>
+      <p class="kicker">WEB SECURITY LAB</p>
+      <h1>Login security comparison</h1>
+      <p>Test SQL injection, reflected XSS, and authorization bypass only on this local classroom application.</p>
+      <ul><li>SQL query construction</li><li>Browser output handling</li><li>Server-side access control</li></ul>
+    </section>
+    <section class="card" aria-labelledby="login-title">
+      <p class="warning">{% if request.host.endswith(':5001') %}INTENTIONALLY VULNERABLE{% else %}HARDENED VERSION{% endif %}</p>
+      <h2 id="login-title">Log in</h2>
+      {% if message %}<p class="message">{{ message }}</p>{% endif %}
+      <form method="post" action="/login" id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" autocomplete="username">
+        <p id="email-error" class="error" aria-live="polite"></p>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password">
+        <p id="password-error" class="error" aria-live="polite"></p>
+        <button type="submit">Log in</button>
+      </form>
+      <p><a href="/admin">Open admin page</a></p>
+    </section>
+  </main>
+</body>
+</html>
