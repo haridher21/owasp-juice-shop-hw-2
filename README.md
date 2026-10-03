@@ -1,6 +1,6 @@
-# Flask Security Comparison Lab
+#  OWASP Juice Shop - Assignment 2B
 
-Two small Flask applications demonstrate the same three threats in opposite ways:
+Two small Flask /JS applications demonstrate the same three threats in opposite ways:
 
 - `vulnerable/` intentionally contains SQL injection, reflected XSS, and an authentication/authorization bypass.
 - `secure/` prevents those flaws with parameterized queries, bcrypt, escaped output, Content Security Policy, trusted sessions, and server-side role checks.
